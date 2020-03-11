@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "934210859104",
+    "firebase_url": "https://helpinghands-4b333.firebaseio.com",
+    "project_id": "helpinghands-4b333",
+    "storage_bucket": "helpinghands-4b333.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934210859104:android:1c55b61e0a263d85b7d305",
+        "android_client_info": {
+          "package_name": "com.spitmca.helpinghands"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934210859104-vhcc6474fju39o43vrf5vfi90vj5ncg7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiLwNYi1coV1yaAq-BSclYmDtP8Ni-aaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934210859104-vhcc6474fju39o43vrf5vfi90vj5ncg7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
