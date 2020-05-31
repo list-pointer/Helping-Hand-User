@@ -20,10 +20,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.concurrent.TimeUnit;
 
 public class VerifyPhoneActivity extends AppCompatActivity {
+
+    FirebaseFirestore fstore;
 
     //three objects needed
     //this is the verification id that will be sent to the user
@@ -36,6 +40,8 @@ public class VerifyPhoneActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     Button btnSignIn;
 
+    String mobile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +50,16 @@ public class VerifyPhoneActivity extends AppCompatActivity {
 
         //initializing objects
         mAuth = FirebaseAuth.getInstance();
+        fstore=FirebaseFirestore.getInstance();
         editTextCode = findViewById(R.id.editTextCode);
         btnSignIn = findViewById(R.id.buttonSignIn);
+
+        editTextCode.requestFocus();
 
         //getting mobile number from the previous activity
         //and sending the verification code to the number
         Intent intent = getIntent();
-        String mobile = intent.getStringExtra("mobile");
+        mobile = intent.getStringExtra("mobile");
         sendVerificationCode(mobile);
 
 
@@ -137,15 +146,35 @@ public class VerifyPhoneActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     //verification successful we will start the profile activity
-                                    Intent intent = new Intent(VerifyPhoneActivity.this, ProfileActivity.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
+
+                                    String uid = mAuth.getCurrentUser().getUid();
+                                    fstore.collection("users").document(uid).get()
+                                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                    if(task.getResult().exists())
+                                                    {
+                                                        Intent intent = new Intent(VerifyPhoneActivity.this, Search.class);
+                                                        intent.putExtra("user_phone",mobile);
+                                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                        startActivity(intent);
+                                                    }
+                                                    else
+                                                    {
+                                                        Intent intent = new Intent(VerifyPhoneActivity.this, RegistrationBio.class);
+                                                        intent.putExtra("user_phone",mobile);
+                                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                        startActivity(intent);
+                                                    }
+                                                }
+                                            });
+
 
                                 } else {
 
                                     //verification unsuccessful.. display an error message
 
-                                    String message = "Somthing is wrong, we will fix it soon...";
+                                    String message = "Something is wrong, we will fix it soon...";
 
                                     if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                         message = "Invalid code entered...";

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5FF">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/registration_top"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="15dp"
+            >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/applogo_64"
+                android:id="@+id/logo"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Helping Hands"
+                android:textSize="30dp"
+                android:textColor="#333333"
+                android:layout_centerInParent="true"
+                android:textStyle="bold"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/metroshow_profileButton"
+                android:src="@drawable/ic_profileicon"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/registration_center"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            >
+
+            <Button
+                android:id="@+id/metroshow_helpButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_design"
+                android:fontFamily="sans-serif-black"
+                android:text="REQUEST\n ASSISTANCE"
+                android:textFontWeight="500"
+                android:textSize="20dp"
+                android:padding="5dp"
+                android:onClick="requestHelp"
+                />
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/registration_center"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:id="@+id/metroshow_tv_availableTrain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trains you can board"
+                android:textColor="#333333"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/metroshow_ll_tableHeaders"
+                android:layout_below="@+id/metroshow_tv_availableTrain"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                >
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/transparent_textview"
+                    android:text="Boarding Time"
+                    android:textSize="20dp"
+                    android:textColor="#333333"
+                    android:textAlignment="center"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/transparent_textview"
+                    android:text="Reaching Time"
+                    android:textSize="20dp"
+                    android:textColor="#333333"
+                    android:textAlignment="center"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/metroshow_rv_trainlist"
+                android:layout_below="@+id/metroshow_ll_tableHeaders"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/metroshow_rv_trainlist"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                >
+                <Button
+                    android:id="@+id/previous_button"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_style"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Previous"
+                    android:textSize="20dp"
+                    android:onClick="showPreviousTrains"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    />
+
+                <Button
+                    android:id="@+id/next_button"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_style"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Next"
+                    android:textSize="20dp"
+                    android:onClick="showNextTrains"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:background="@drawable/registration_bottom"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:id="@+id/customLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search for trains after"
+                android:textColor="#333333"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/metroshow_ll_timepickers"
+                android:layout_below="@id/customLabel"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                >
+                <TextView
+                    android:id="@+id/metroshow_tv_startTime"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_et"
+                    android:text="00:00"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:layout_margin="5dp"
+                    android:padding="15dp"
+                    />
+
+                <Button
+                    android:id="@+id/custom_button"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_style"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Search"
+                    android:textSize="20dp"
+                    android:onClick="customSearch"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="5dp"
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/show_all_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_style"
+                android:fontFamily="sans-serif-black"
+                android:text="Show All Trains"
+                android:textSize="20dp"
+                android:layout_below="@id/metroshow_ll_timepickers"
+                android:layout_centerHorizontal="true"
+                android:onClick="showAllTrains"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="5dp"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

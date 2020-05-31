@@ -1,68 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerifyPhoneActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    android:background="#F5F5FF">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/registration_top"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="15dp"
+            >
 
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/applogo_64"
+                android:id="@+id/logo"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="172dp"
-        android:text="Wait for the code"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.145"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Helping Hands"
+                android:textSize="30dp"
+                android:textColor="#333333"
+                android:layout_centerInParent="true"
+                android:textStyle="bold"
+                />
 
-    <ProgressBar
-        android:id="@+id/progressbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView" />
+        </RelativeLayout>
 
-    <EditText
-        android:id="@+id/editTextCode"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:digits="0123456789"
-        android:drawablePadding="10dp"
-        android:hint="enter verification code"
-        android:inputType="phone"
-        android:maxLength="10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressbar" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/registration_bottom"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="15dp"
+            >
 
-    <Button
-        android:id="@+id/buttonSignIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextCode"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="Sign In"
-        android:textAllCaps="false"
-        android:textColor="#cdd8f1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextCode" />
+            <TextView
+                android:id="@+id/textView_waitforcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wait for the code"
+                android:textSize="40sp"
+                android:textColor="#333333"
+                android:layout_above="@+id/textView_code_info"
+                android:layout_marginBottom="5dp"
+                />
+            <TextView
+                android:id="@+id/textView_code_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Or enter the code manually"
+                android:textSize="25sp"
+                android:textColor="#636363"
+                android:layout_above="@+id/ll_code"
+                android:layout_marginBottom="100dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ll_code"
+                android:orientation="horizontal"
+                android:layout_centerVertical="true"
+                >
 
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <EditText
+                    android:id="@+id/editTextCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:textColor="#959595"
+                    android:digits="0123456789"
+                    android:inputType="phone"
+                    android:maxLength="6"
+                    android:singleLine="true"
+                    android:background="@drawable/bg_et"
+                    android:padding="15dp"
+                    android:layout_marginLeft="10dp"
+                    />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonSignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/button_style"
+                android:text="Continue"
+                android:textAllCaps="false"
+                android:textColor="#333333"
+                android:textSize="25sp"
+                android:layout_below="@+id/ll_code"
+                android:layout_marginTop="40dp"
+                android:padding="15dp"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>

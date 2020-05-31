@@ -24,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
         btnContinue = findViewById(R.id.buttonContinue);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
+        editTextMobile.requestFocus();
+
         //check whether the user is logged in
         if (currentUser != null) {
-            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            Intent intent = new Intent(MainActivity.this, Search.class);
             startActivity(intent);
             finish();
         } else {
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     Intent intent = new Intent(MainActivity.this, VerifyPhoneActivity.class);
+
                     intent.putExtra("mobile", mobileNo);
                     startActivity(intent);
                 }

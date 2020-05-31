@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5FF">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/registration_top"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="15dp"
+            >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/applogo_64"
+                android:id="@+id/logo"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Helping Hands"
+                android:textSize="30dp"
+                android:textColor="#333333"
+                android:layout_centerInParent="true"
+                android:textStyle="bold"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/helprequested_profileButton"
+                android:src="@drawable/ic_profileicon"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/registration_center"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/helprequestedheadertext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Help has been requested"
+                android:textColor="#000000"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:layout_centerHorizontal="true"
+                />
+
+            <TextView
+                android:id="@+id/helprequestedbodytext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/helprequestedheadertext"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:text="The assistant details will soon be available below"
+                android:textColor="#333333"
+                android:textSize="25dp"
+                android:textAlignment="center"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_et"
+                android:padding="10dp"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="15dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/helprequested_rl_profileImage"
+                android:background="@drawable/bg_profile_image"
+                android:layout_centerInParent="true"
+                >
+
+                <ImageView
+                    android:layout_width="450px"
+                    android:layout_height="450px"
+                    android:id="@+id/helprequested_profile_image"
+                    android:layout_centerInParent="true"
+                    />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/registration_bottom"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/helprequested_tv_user"
+                android:text="Assistant Details"
+                android:textSize="25dp"
+                android:textColor="#333333"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:layout_centerHorizontal="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/helprequested_tv_username"
+                android:text="Name"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_below="@+id/helprequested_tv_user"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/helprequested_et_username"
+                android:textSize="20dp"
+                android:textColor="#959595"
+                android:background="@drawable/bg_et"
+                android:layout_below="@+id/helprequested_tv_user"
+                android:layout_toRightOf="@id/helprequested_tv_usernumber"
+                android:padding="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="15dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/helprequested_tv_usernumber"
+                android:text="Phone"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:layout_below="@+id/helprequested_et_username"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/helprequested_et_usernumber"
+                android:textSize="20dp"
+                android:textColor="#959595"
+                android:background="@drawable/bg_et"
+                android:layout_below="@+id/helprequested_et_username"
+                android:layout_toRightOf="@id/helprequested_tv_usernumber"
+                android:padding="15dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/helprequested_endservice"
+                android:text="End Service"
+                android:textSize="25dp"
+                android:textAllCaps="false"
+                android:background="@drawable/rejectbutton"
+                android:elevation="0dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/helprequested_et_usernumber"
+                android:onClick="endService"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"
+                android:padding="15dp"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
